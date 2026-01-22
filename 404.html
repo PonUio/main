@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - такой страницы нет</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    :root {
+      --mainclr: #7437EE; 
+      --bgclr: #0D0D0D;   
+      --shadow: 0 0 15px rgba(116, 55, 238, 0.4);
+     
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bgclr);
+      color: var(--txtclr);
+      font-family: 'Montserrat', sans-serif; 
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .Error {
+        font-size: 10rem;
+        color: var(--mainclr);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700; 
+    }
+
+    .text {
+        font-size: 3rem;
+        color: #fff;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700; 
+    }
+
+    .social-button {
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 25px;
+      border-radius: 50px;
+      border: 2px solid var(--mainclr);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 700; 
+      transition: 0.3s;
+      box-shadow: var(--shadow);
+    }
+</style>
+<body>
+    <h1 class="Error">404</h1>
+    <h1 class="text">Кажется, вы заблудились..</h1>
+    <a href=index.html target="_blank" class="social-button">На главную...</a>
+</body>
+  

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>twxz - био</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    
+    :root {
+      --mainclr: #7437EE; 
+      --bgclr: #0D0D0D;   
+      --txtclr: #A277FF;  
+      --shadow: 0 0 15px rgba(116, 55, 238, 0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bgclr);
+      color: var(--txtclr);
+      font-family: 'Montserrat', sans-serif; 
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid var(--mainclr);
+      overflow: hidden;
+      margin-bottom: 15px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .avatar:hover { transform: scale(1.05); }
+
+    .name {
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700; 
+    }
+
+    .typed {
+      font-size: 0.9rem;
+      color: var(--mainclr);
+      margin-bottom: 30px;
+      height: 1.2rem;
+      font-weight: 700; 
+    }
+
+    .cursor {
+      display: inline-block;
+      animation: blink 0.8s infinite;
+      margin-left: 2px;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .social {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .social-button {
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 25px;
+      border-radius: 50px;
+      border: 2px solid var(--mainclr);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 700; 
+      transition: 0.3s;
+      box-shadow: var(--shadow);
+    }
+
+    .social-button:hover {
+      background: var(--mainclr);
+      color: #000;
+      box-shadow: 0 0 25px var(--mainclr);
+      transform: translateY(-2px);
+    }
+
+    .frame1 {
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid var(--mainclr);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background: rgba(116, 55, 238, 0.03);
+    }
+
+    .frame1 h2 { 
+      font-size: 0.9rem; 
+      color: var(--mainclr); 
+      margin-bottom: 15px; 
+      text-transform: uppercase; 
+      font-weight: 700; 
+    }
+    .text-2 { display: flex; flex-wrap: wrap; gap: 8px; }
+    .text3 {
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border: 1px solid rgba(116, 55, 238, 0.4);
+      border-radius: 12px;
+      background: var(--txtclr);
+      color: #fff;
+      font-weight: 700; 
+    }
+
+    
+
+  </style>
+</head>
+<body>
+
+  <div class="avatar">
+    <img src="assets/image.jpg" alt="avatar" />
+  </div>
+
+  <h1 class="name">twxz</h1>
+
+  <p class="typed">
+    <span id="typed-text"></span><span class="cursor">|</span>
+  </p>
+
+  <div class="social">
+    <a href="https://t.me/fuckavet" target="_blank" class="social-button">
+      <i class="fa-brands fa-telegram"></i> Telegram
+    </a>
+    <a href="https://github.com/PonUio" target="_blank" class="social-button">
+      <i class="fa-brands fa-github"></i> Github
+    </a>
+    <a href="https://t.me/tact9design" target="_blank" class="social-button">
+      <i class="fa-brands fa-telegram"></i> Мои дизайн-проекты
+    </a>
+  </div>
+
+  <div class="frame1">
+    <h2>-> Обо мне</h2>
+    <div class="text-2">
+      <span class="text3">Увлекаюсь графическим дизайном</span>
+      <span class="text3">Хочу поступить на веб-дизайнера</span>
+      <span class="text3">Я очень крутой</span>
+      <span class="text3">Хз че еще</span>
+    </div>
+  </div>
+  
+  <div class="frame1">
+    <h2>-> Направления</h2>
+    <div class="text-2">
+      <span class="text3">Программирование</span>
+      <span class="text3">Графический дизайн</span>
+      <span class="text3">Веб-дизайн</span>
+      <span class="text3">Инфографика</span>
+    </div>
+  </div>
+
+  <div class="frame1">
+    <h2>-> Языки программирования</h2>
+    <div class="text-2">
+      <span class="text3">C#</span>
+      <span class="text3">C++</span>
+      <span class="text3">Html / CSS</span>
+      <span class="text3">Python</span>
+    </div>
+  </div>
+
+  <script>
+    const typedTextSpan = document.getElementById("typed-text");
+    
+    const phrases = [
+      "учусь на программиста, увлекаюсь дизайном",
+      "хз че ещё написать.",
+      "я такой крутой",
+      "киньте 100 рублей, пж"
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
+
+    function type() {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        typedTextSpan.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50; 
+      } else {
+        typedTextSpan.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        typeSpeed = 1500; 
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typeSpeed = 500; 
+      }
+
+      setTimeout(type, typeSpeed);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(type, 500);
+    });
+  </script>
+
+</body>
+</html>
+
