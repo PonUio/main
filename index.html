@@ -2,237 +2,356 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>twxz - био</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>twxz // bio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  
   <style>
-    
-    :root {
-      --mainclr: #7437EE; 
-      --bgclr: #0D0D0D;   
-      --txtclr: #A277FF;  
-      --shadow: 0 0 15px rgba(116, 55, 238, 0.4);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: var(--bgclr);
-      color: var(--txtclr);
-      font-family: 'Montserrat', sans-serif; 
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      background: #0a0d12;
+      background-image: radial-gradient(circle at 10% 20%, rgba(60, 207, 154, 0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      font-family: 'Fira Code', 'Courier New', 'JetBrains Mono', monospace;
+      color: #c5f0e0;
       padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    .avatar {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 3px solid var(--mainclr);
-      overflow: hidden;
-      margin-bottom: 15px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
-    }
-
-    .avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .avatar:hover { transform: scale(1.05); }
-
-    .name {
-      font-size: 1.8rem;
-      color: #fff;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 700; 
-    }
-
-    .typed {
-      font-size: 0.9rem;
-      color: var(--mainclr);
-      margin-bottom: 30px;
-      height: 1.2rem;
-      font-weight: 700; 
-    }
-
-    .cursor {
-      display: inline-block;
-      animation: blink 0.8s infinite;
-      margin-left: 2px;
-    }
-
-    @keyframes blink { 50% { opacity: 0; } }
-
-    .social {
+    .ide {
+      max-width: 980px;
       width: 100%;
-      max-width: 400px;
+      background: #0e1219;
+      border-radius: 16px;
+      border: 1px solid #2a4540;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    .topbar {
+      background: #141c22;
+      padding: 10px 18px;
+      border-bottom: 1px solid #2a4540;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #3a6052;
+    }
+    .dot.red { background: #e05a4f; }
+    .dot.yellow { background: #e0b04f; }
+    .dot.green { background: #4fbf8a; }
+    .filetag {
+      background: #1e2c2c;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-family: monospace;
+      color: #83cfb2;
+    }
+    .spacer {
+      flex: 1;
+    }
+
+    .main {
+      padding: 28px 28px 36px;
+    }
+
+    .avatar-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #2a4840;
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+    .avatar-frame {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      border: 2px solid #3cdd9e;
+      overflow: hidden;
+      background: #06090c;
+    }
+    .avatar-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .name h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #e8fff2;
+      letter-spacing: -0.5px;
+    }
+    .name p {
+      font-size: 0.75rem;
+      color: #6bc9a6;
+      margin-top: 4px;
+    }
+
+    /* новый стиль для печатного текста — как у кнопок соцсетей */
+    .typed-area {
+      background: #10171f;
+      border: 1px solid #327a62;
+      border-radius: 60px;
+      padding: 12px 20px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+    .prompt {
+      color: #6bdbaa;
+    }
+    #typed-text {
+      color: #caffec;
+    }
+    .cursor {
+      width: 8px;
+      height: 1rem;
+      background: #3cdd9e;
+      display: inline-block;
+      margin-left: 3px;
+      animation: blinkStep 1s step-end infinite;
+    }
+    @keyframes blinkStep {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .socials {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 40px;
+      margin-bottom: 34px;
     }
-
-    .social-button {
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 25px;
-      border-radius: 50px;
-      border: 2px solid var(--mainclr);
+    .social-btn {
+      background: #10171f;
+      border: 1px solid #327a62;
+      border-radius: 60px;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      font-weight: 700; 
-      transition: 0.3s;
-      box-shadow: var(--shadow);
+      justify-content: space-between;
+      text-decoration: none;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #daf9ec;
+      transition: 0.1s linear;
+    }
+    .social-btn .left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .social-btn i {
+      width: 24px;
+      font-size: 1.1rem;
+      color: #3cdd9e;
+    }
+    .social-btn:hover {
+      background: #1c2f2f;
+      border-color: #5fe6b5;
     }
 
-    .social-button:hover {
-      background: var(--mainclr);
-      color: #000;
-      box-shadow: 0 0 25px var(--mainclr);
-      transform: translateY(-2px);
+    .cpp-card {
+      border-radius: 14px;
+      border: 1px solid #2a5a4a;
+      background: #0b1117;
+      overflow: hidden;
     }
-
-    .frame1 {
-      width: 100%;
-      max-width: 400px;
-      border: 1px solid var(--mainclr);
-      border-radius: 20px;
-      padding: 20px;
-      margin-bottom: 20px;
-      background: rgba(116, 55, 238, 0.03);
+    .cpp-header {
+      background: #111d21;
+      padding: 8px 18px;
+      border-bottom: 1px solid #2a5a4a;
+      font-size: 0.7rem;
+      color: #8adbbc;
+      display: flex;
+      justify-content: space-between;
     }
-
-    .frame1 h2 { 
-      font-size: 0.9rem; 
-      color: var(--mainclr); 
-      margin-bottom: 15px; 
-      text-transform: uppercase; 
-      font-weight: 700; 
+    .cpp-content {
+      padding: 20px 22px;
+      font-family: 'Courier New', 'Fira Code', monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      background: #0b1117;
+      overflow-x: auto;
     }
-    .text-2 { display: flex; flex-wrap: wrap; gap: 8px; }
-    .text3 {
-      font-size: 0.8rem;
-      padding: 6px 14px;
-      border: 1px solid rgba(116, 55, 238, 0.4);
-      border-radius: 12px;
-      background: var(--txtclr);
-      color: #fff;
-      font-weight: 700; 
+    .cpp-content pre {
+      margin: 0;
+      white-space: pre-wrap;
+      font-family: inherit;
     }
-
-    
-
+    .keyword { color: #92e5ca; font-weight: 500; }
+    .type { color: #79dfb3; }
+    .string { color: #daf0a5; }
+    .comment { color: #6f9c8a; font-style: normal; }
+    .var { color: #f8bc7a; }
+    .num { color: #f0bc70; }
   </style>
 </head>
 <body>
 
-  <div class="avatar">
-    <img src="assets/image.jpg" alt="avatar" />
-  </div>
-
-  <h1 class="name">twxz</h1>
-
-  <p class="typed">
-    <span id="typed-text"></span><span class="cursor">|</span>
-  </p>
-
-  <div class="social">
-    <a href="https://t.me/fuckavet" target="_blank" class="social-button">
-      <i class="fa-brands fa-telegram"></i> Telegram
-    </a>
-    <a href="https://github.com/PonUio" target="_blank" class="social-button">
-      <i class="fa-brands fa-github"></i> Github
-    </a>
-    <a href="https://t.me/tact9design" target="_blank" class="social-button">
-      <i class="fa-brands fa-telegram"></i> Мои дизайн-проекты
-    </a>
-  </div>
-
-  <div class="frame1">
-    <h2>-> Обо мне</h2>
-    <div class="text-2">
-      <span class="text3">Увлекаюсь графическим дизайном</span>
-      <span class="text3">Хочу поступить на веб-дизайнера</span>
-      <span class="text3">Я очень крутой</span>
-      <span class="text3">Хз че еще</span>
+<div class="ide">
+  <div class="topbar">
+    <div class="dots">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
     </div>
+    <div class="filetag"><i class="fa-regular fa-file-code"></i> ~/twxz/bio.html</div>
+    <div class="spacer"></div>
   </div>
-  
-  <div class="frame1">
-    <h2>-> Направления</h2>
-    <div class="text-2">
-      <span class="text3">Программирование</span>
-      <span class="text3">Графический дизайн</span>
-      <span class="text3">Веб-дизайн</span>
-      <span class="text3">Инфографика</span>
-    </div>
-  </div>
-
-  <div class="frame1">
-    <h2>-> Языки программирования</h2>
-    <div class="text-2">
-      <span class="text3">C#</span>
-      <span class="text3">C++</span>
-      <span class="text3">Html / CSS</span>
-      <span class="text3">Python</span>
-      <span class="text3">JS</span>
-    </div>
-  </div>
-
-  <script>
-    const typedTextSpan = document.getElementById("typed-text");
+  <div class="main">
     
-    const phrases = [
-      "учусь на программиста, увлекаюсь дизайном",
-      "хз че ещё написать.",
-      "я такой крутой",
-      "киньте 100 рублей, пж"
-    ];
+    <div class="avatar-row">
+      <div class="avatar-frame">
+        <img src="assets/image.jpg" alt="twxz">
+      </div>
+      <div class="name">
+        <h1>twxz</h1>
+        <p>junior developer && visual designer</p>
+      </div>
+    </div>
 
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 100;
+    <div class="typed-area">
+      <span class="prompt">$></span>
+      <span id="typed-text"></span><span class="cursor"></span>
+    </div>
 
-    function type() {
-      const currentPhrase = phrases[phraseIndex];
+    <div class="socials">
+      <a href="https://t.me/fuckavet" target="_blank" class="social-btn">
+        <span class="left"><i class="fa-brands fa-telegram"></i> @fuckavet</span>
+        <span>➔</span>
+      </a>
+      <a href="https://github.com/PonUio" target="_blank" class="social-btn">
+        <span class="left"><i class="fa-brands fa-github"></i> PonUio</span>
+        <span>➔</span>
+      </a>
+      <a href="https://t.me/tact9design" target="_blank" class="social-btn">
+        <span class="left"><i class="fa-brands fa-telegram"></i> design: tact9design</span>
+        <span>➔</span>
+      </a>
+    </div>
 
-      if (isDeleting) {
-        typedTextSpan.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-        typeSpeed = 50; 
-      } else {
-        typedTextSpan.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
-        typeSpeed = 100;
-      }
+    <div class="cpp-card">
+      <div class="cpp-header">
+        <span><i class="fa-regular fa-file-lines"></i> twxz_profile.cpp</span>
+        <span></span>
+      </div>
+      <div class="cpp-content">
+        <pre>
+<span class="keyword">#include</span> &lt;iostream&gt;
+<span class="keyword">using namespace</span> std;
 
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        isDeleting = true;
-        typeSpeed = 1500; 
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typeSpeed = 500; 
-      }
+<span class="keyword">class</span> <span class="var">Developer</span> {
+<span class="keyword">private</span>:
+    <span class="type">string</span> name;
+    <span class="type">string</span> dream;
+    <span class="type">vector</span>&lt;<span class="type">string</span>&gt; languages;
+    <span class="type">vector</span>&lt;<span class="type">string</span>&gt; directions;
 
-      setTimeout(type, typeSpeed);
+<span class="keyword">public</span>:
+    <span class="var">Developer</span>() {
+        name = <span class="string">"twxz"</span>;
+        dream = <span class="string">"поступить на веб-дизайнера и создавать крутые интерфейсы"</span>;
+        languages = {<span class="string">"C#"</span>, <span class="string">"C++"</span>, <span class="string">"Python"</span>, <span class="string">"HTML/CSS"</span>};
+        directions = {<span class="string">"графический дизайн"</span>, <span class="string">"веб-дизайн"</span>,
+                      <span class="string">"программирование"</span>, <span class="string">"инфографика"</span>};
     }
+    
+    <span class="type">void</span> <span class="var">showInfo</span>() {
+        cout &lt;&lt; <span class="string">"👤 Имя: "</span> &lt;&lt; name &lt;&lt; endl;
+        cout &lt;&lt; <span class="string">"🎯 Цель: "</span> &lt;&lt; dream &lt;&lt; endl;
+        
+        cout &lt;&lt; <span class="string">"💻 Языки: "</span>;
+        <span class="keyword">for</span> (<span class="keyword">auto</span>& lang : languages) 
+            cout &lt;&lt; lang &lt;&lt; <span class="string">"  "</span>;
+        cout &lt;&lt; endl;
+        
+        cout &lt;&lt; <span class="string">"🎨 Направления: "</span>;
+        <span class="keyword">for</span> (<span class="keyword">auto</span>& dir : directions) 
+            cout &lt;&lt; dir &lt;&lt; <span class="string">"  "</span>;
+        cout &lt;&lt; endl;
+        
+        cout &lt;&lt; <span class="string">"🔥 О себе: увлекаюсь графическим дизайном, хочу поступить на веб-разработку"</span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="string">"📌 Telegram: @fuckavet | GitHub: PonUio"</span> &lt;&lt; endl;
+    }
+};
 
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(type, 500);
-    });
-  </script>
+<span class="type">int</span> <span class="var">main</span>() {
+    <span class="var">Developer</span> me;
+    me.showInfo();
+    
+    <span class="keyword">return</span> <span class="num">0</span>;
+}
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const typedSpan = document.getElementById("typed-text");
+  const statuses = [
+    "графический дизайнер",
+    "пишу на C++, C#, Python",
+    "хочу поступить на веб-разработку",
+    "био ниже, в виде скрипта"
+  ];
+  let line = 0, pos = 0, deleting = false;
+  let timerSpeed = 85;
+
+  function animateTyping() {
+    if (!typedSpan) return;
+    const currentLine = statuses[line];
+    if (deleting) {
+      typedSpan.innerText = currentLine.substring(0, pos - 1);
+      pos--;
+      timerSpeed = 40;
+    } else {
+      typedSpan.innerText = currentLine.substring(0, pos + 1);
+      pos++;
+      timerSpeed = 90;
+    }
+    if (!deleting && pos === currentLine.length) {
+      deleting = true;
+      timerSpeed = 1500;
+    } else if (deleting && pos === 0) {
+      deleting = false;
+      line = (line + 1) % statuses.length;
+      timerSpeed = 380;
+    }
+    setTimeout(animateTyping, timerSpeed);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(animateTyping, 400);
+  });
+</script>
 
 </body>
 </html>
+
 
